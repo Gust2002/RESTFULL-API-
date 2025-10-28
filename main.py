@@ -9,14 +9,14 @@ def Hello_world():
 
 my_library = {}
 
-@app.get("/requesting")
+@app.get("/request")
 def get_book(id_book: int, book_name: str, author_name: str, book_year: int):
  if not my_library:
     return {"Message": "This book does not exist"}
  else:
      return {"get_book": my_library}
  
-@app.post("/creating")
+@app.post("/create")
 def post_book(id_book: int, book_name: str, author_name: str, book_year):
     if id_book in my_library:
         raise HTTPException(status_code=400,detail="This book is created already")
