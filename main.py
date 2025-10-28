@@ -11,10 +11,10 @@ def Hello_world():
 
 my_library = {}
 
-class Book(BaseModel):
-    book_name = str 
-    author_name = str 
-    book_year = int
+class Book(BaseModel): 
+    book_name: str 
+    author_name:  str 
+    book_year: int
 
 @app.get("/request")
 def get_book():
@@ -32,7 +32,7 @@ def post_book(id_book: int, book: Book):
         return {"Message": "Your book has been created with suceafully!!"}
     
 
-@app_put("/update/{id_book}")
+@app.put("/update/{id_book}")
 def put_book(id_book: int, book: Book):
     my_book = my_library.get[id_book]
     if not my_book:
